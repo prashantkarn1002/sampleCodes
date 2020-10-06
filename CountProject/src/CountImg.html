@@ -1,0 +1,37 @@
+
+<html>
+<head>
+<h1>Total Count of sites:</h1>
+</head>
+
+<body>
+<a href="">
+<div id="printHereArticles"></div>
+<div id="printHereImg"></div>
+<div id="printHereLinks"></div>
+
+<script type="text/javascript">
+
+fetch('https://api.codetabs.com/v1/proxy?quest=indiatimes.com/news/').then(
+(response) => response.text()
+).then(
+(text) => document.getElementById("printHereArticles").innerHTML = "Total Articles: "+text.search("<p")
+);
+
+fetch('https://api.codetabs.com/v1/proxy?quest=indiatimes.com/news/').then(
+(response) => response.text()
+).then(
+(text) => document.getElementById("printHereImg").innerHTML = "Total images: "+text.search("img")
+);
+
+fetch('https://api.codetabs.com/v1/proxy?quest=indiatimes.com/news/').then(
+(response) => response.text()
+).then(
+(text) => document.getElementById("printHereLinks").innerHTML = "Total exit links: "+text.search("<a")
+);
+
+</script>
+
+</body>
+
+</html>
